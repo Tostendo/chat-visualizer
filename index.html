@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+    <title>Visualize</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script async src="./js/index.js"></script>
+  </head>
+  <body>
+    <div>
+      <h2>Telegram messages per month</h2>
+      <div class="container">
+        <canvas
+          id="messageCount"
+          style="width: 100%; max-width: 1200px"
+        ></canvas>
+      </div>
+    </div>
+    <div>
+      <h2>Telegram words per month</h2>
+      <div class="container">
+        <canvas id="wordCount" style="width: 100%; max-width: 1200px"></canvas>
+      </div>
+    </div>
+    <div>
+      <h2>Telegram words per message per month</h2>
+      <div class="container">
+        <canvas
+          id="wordPerMessageCount"
+          style="width: 100%; max-width: 1200px"
+        ></canvas>
+      </div>
+    </div>
+  </body>
+</html>
