@@ -1,0 +1,16 @@
+section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  padding: 20px;
+}
+
+div {
+  padding: 20px;
+}
+
+ol {
+  text-align: left;
+}

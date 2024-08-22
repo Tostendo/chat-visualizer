@@ -1,73 +1,23 @@
-const data = require("../monthly.json");
-const users = require("../users.json");
+import { search } from "./services/Messages.js";
+import Store from "./services/store.js";
+import Router from "./services/router.js";
+// import "./charts";
 
-// populate
-// populateTable(data);
-const xValues = data.map((e) => e["month"]);
+// web components
+import { Stats } from "./components/Stats.js";
+import { Search } from "./components/Search.js";
+import { Home } from "./components/Home.js";
+import { MessageDetails } from "./components/MessageDetails.js";
+import { MessageItem } from "./components/MessageItem.js";
+import { Links } from "./components/Links.js";
 
-new Chart("messageCount", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        label: Object.values(users)[0],
-        data: data.map((e) => e[Object.keys(users)[0]]),
-        borderColor: "red",
-        fill: false,
-      },
-      {
-        label: Object.values(users)[1],
-        data: data.map((e) => e[Object.keys(users)[1]]),
-        borderColor: "green",
-        fill: false,
-      },
-    ],
-  },
-});
+window.app = {};
+app.store = Store;
+app.router = Router;
 
-new Chart("wordCount", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        label: Object.values(users)[0],
-        data: data.map((e) => e[`${Object.keys(users)[0]}_words`]),
-        borderColor: "red",
-        fill: false,
-      },
-      {
-        label: Object.values(users)[1],
-        data: data.map((e) => e[`${Object.keys(users)[1]}_words`]),
-        borderColor: "green",
-        fill: false,
-      },
-    ],
-  },
-});
-
-new Chart("wordPerMessageCount", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        label: Object.values(users)[0],
-        data: data.map(
-          (e) => e[`${Object.keys(users)[0]}_words`] / e[Object.keys(users)[0]]
-        ),
-        borderColor: "red",
-        fill: false,
-      },
-      {
-        label: Object.values(users)[1],
-        data: data.map(
-          (e) => e[`${Object.keys(users)[1]}_words`] / e[Object.keys(users)[1]]
-        ),
-        borderColor: "green",
-        fill: false,
-      },
-    ],
-  },
+window.addEventListener("DOMContentLoaded", async () => {
+  const chatId = localStorage.getItem("chat-id");
+  app.store.chatId = chatId ?? "example";
+  search("kakao");
+  app.router.init();
 });

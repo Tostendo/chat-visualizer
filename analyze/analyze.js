@@ -56,13 +56,14 @@ function getUniqueUsers(messages) {
 function addWordCount(messages) {
   return messages.map((message) => {
     const createdAt = new Date(message["date"]);
+    createdAt.get;
     return {
       ...message,
       word_count: getWordCount(message["text_entities"]),
       year_and_month: Number.parseInt(
-        `${createdAt.getFullYear()}${createdAt.getMonth() + 1 < 10 ? "0" : ""}${
-          createdAt.getMonth() + 1
-        }`
+        `${createdAt.getFullYear()}${
+          getWeek(createdAt) < 10 ? "0" : ""
+        }${getWeek(createdAt)}`
       ),
     };
   });
@@ -78,6 +79,13 @@ function getWordCount(entities) {
       accumulator + currentValue["text"].trim().split(" ").length,
     initialValue
   );
+}
+
+function getWeek(currentDate) {
+  let startDate = new Date(currentDate.getFullYear(), 0, 1);
+  let days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
+
+  return Math.ceil(days / 7);
 }
 
 function getUniqueMonth(messages) {

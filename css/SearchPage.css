@@ -1,0 +1,38 @@
+.search-results {
+  margin: 20px auto;
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  text-align: left;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-header h4 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.message-item {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px;
+  border-radius: 10px;
+}
+
+.highlighted {
+  background-color: green;
+  color: white;
+  border: 2px;
+  border-radius: 5px;
+}
+
+#search-term {
+  font-size: 20px;
+  font-weight: 800;
+}
