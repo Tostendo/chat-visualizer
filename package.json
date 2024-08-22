@@ -2,18 +2,17 @@
   "name": "chat-visualizer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
-    "start": "parcel index.html --out-dir docs",
-    "build": "parcel build index.html --out-dir docs --public-url ./",
+    "dev": "npx parcel index.html",
+    "start": "npx parcel index.html --dist-dir docs",
+    "build": "parcel build index.html --dist-dir docs --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.12.0"
   },
   "dependencies": {
     "chart.js": "^4.4.2"
